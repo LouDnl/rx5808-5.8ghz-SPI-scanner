@@ -20,6 +20,13 @@ This file is part of OLED 5.8ghz Scanner project.
 #ifndef const_h
 #define const_h
 
+#define BUTTONS
+//#define ENCODER
+
+#define SCANNER_MODE 0
+#define RECEIVER_MODE 1
+#define RSSI_MODE 2
+
 //calibration stored values
 #define EEPROM_ADR_RSSI_MIN_L 2
 #define EEPROM_ADR_RSSI_MIN_H 3
@@ -32,13 +39,32 @@ This file is part of OLED 5.8ghz Scanner project.
 #define CHANNEL_MIN 0
 
 #define button_select 2
-#define button_mode 3
+#define button_mode   3
+#define button_rssi   7
 
-#define SSP 10 //receiver SPI Select pin
+#define SSP       10 //receiver SPI Select pin
+#define TFT_CS    4  // display has no CS pin, still have to define :(
+#define TFT_DC    8
+#define TFT_RST   9 
+
+#define TFT_ROTATION  2 // rotate 180 degrees
 
 #define rssi_pin A2  //RSSI input
 
 #define Voltage A3 //Voltage divider input
+#define NUM_SAMPLES 10
+
+// Color definitions for TFT display
+#define BLACK   0x0000
+#define BLUE    0x001F
+#define RED     0xF800
+#define GREEN   0x07E0
+#define CYAN    0x07FF
+#define MAGENTA 0xF81F
+#define YELLOW  0xFFE0
+#define WHITE   0xFFFF
+#define GRAY    0x8410
+#define ORANGE  0xFC00
 
 // Channels with their Mhz Values
 const uint16_t channelFreqTable[] PROGMEM = {

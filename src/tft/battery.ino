@@ -19,13 +19,12 @@ This file is part of OLED 5.8ghz Scanner project.
 #include "const.h"
 
 void battery_measure() { //battery voltage measurement
-  uint16_t  vval = 0;
-  for ( byte i = 0; i < 10; i++)
-  {
-    vval = vval + analogRead(Voltage);
-    delay(1);
+  while (sample_count < NUM_SAMPLES) {
+      sum += analogRead(Voltage);
+      sample_count++;
+      delay(1);
   }
-
-  volt = (vval / VoltDivider) * (12.6 / 1023.0); //maximum is 3s lipo (4.2*3=12.6)
+  volt = ((((float)sum / (float)NUM_SAMPLES * VoltReference) / 1023.0) * VoltDivider);
+  sample_count = 0;
+  sum = 0;  
 }
-

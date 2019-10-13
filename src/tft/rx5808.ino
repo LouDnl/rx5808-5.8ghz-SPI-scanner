@@ -218,16 +218,17 @@ void RX5808::calibration() {
   rssi_max = ((EEPROM.read(EEPROM_ADR_RSSI_MAX_H) << 8) | (EEPROM.read(EEPROM_ADR_RSSI_MAX_L)));
 
   //print the min and max value
-  u8g.firstPage();
-  do {
 
-    sprintf (buf, "MIN: %d", rssi_setup_min);
-    u8g.drawStr(20, 20, buf);
+  tft.setTextColor(YELLOW, BLACK);
+  tft.setTextSize(2);
 
-    sprintf (buf, "MAX: %d", rssi_setup_max);
-    u8g.drawStr(20, 50, buf);
+  sprintf (buf, "RSSI MIN: %d", rssi_setup_min);
+  tft.setCursor(50, 120); 
+  tft.println(buf);
 
-  } while ( u8g.nextPage() );
+  sprintf (buf, "RSSI MAX: %d", rssi_setup_max);
+  tft.setCursor(50, 140); 
+  tft.println(buf);
 
   delay(3000);
 
