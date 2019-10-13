@@ -1,6 +1,6 @@
 # rx5808-5.8ghz-SPI-scanner
  rx5808 5.8ghz SPI scanner with display
- This repository is a clone of [OLED-scanner] (https://github.com/MikyM0use/OLED-scanner) by MikyM0use/OLED-scanner
+ This repository is a clone of [OLED-scanner](https://github.com/MikyM0use/OLED-scanner/) by MikyM0use/OLED-scanner
 
 # new features
 * support 240*240 TFT IPS SPI display
